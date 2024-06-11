@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { z } from "zod";
 import './login.css';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const LoginSchema = z.object({
     email: z.string().email(),
@@ -17,10 +19,18 @@ const Login = () => {
 
         try {
             LoginSchema.parse({ email, password });
-            alert('Login successful!');
+            toast.success('VAMOOOOO');
         } catch (err) {
-            const errorMessages = err.errors.map(error => error.message);
-            alert(errorMessages);
+            err.errors.forEach(error => {
+                if(error.message === 'Invalid email'){
+                    toast.error('Invalid email');
+                }
+                else if(error.message === 'String must contain at least 8 character(s)'){
+                    toast.error('Password must be at least 8 characters');
+                }else {
+                    toast.error('Invalid credentials');
+                }
+            });
         }
 
     }
@@ -33,6 +43,7 @@ const Login = () => {
                 <input type="password" placeholder='Digite sua senha' value={password} onChange={(e) => setPassword(e.target.value)} />
                 <button type="submit">Enviar</button>
             </form>
+            <ToastContainer />
         </div>
     );
 }
