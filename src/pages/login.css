@@ -32,7 +32,7 @@ input[type="password"] {
     font-size: 16px;
 }
 
-button {
+.btnEnviar {
     padding: 10px 20px;
     border: none;
     border-radius: 4px;
@@ -43,6 +43,6 @@ button {
     transition: background-color 0.3s ease; /* Transição suave */
 }
 
-button:hover {
+.btnEnviar:hover {
     background-color: #333; /* Cor de fundo do botão ao passar o mouse */
 }
