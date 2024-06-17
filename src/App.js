@@ -1,6 +1,7 @@
 import Login from "./pages/login";
 import InformationApi from "./pages/informationApi";
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { ChakraProvider } from '@chakra-ui/react'     
 
 const router = createBrowserRouter([
   {
@@ -15,9 +16,13 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-    <div className="App">
+
+    <ChakraProvider>
+       <div className="App">
       <RouterProvider router={router}></RouterProvider>
     </div>
+    </ChakraProvider>
+   
   );
 }
 

@@ -4,6 +4,7 @@ import './login.css';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from "react-router-dom";
+import { Text } from '@chakra-ui/react'
 
 const LoginSchema = z.object({
     email: z.string().email({message: 'Email invalido'}),
@@ -24,7 +25,10 @@ const Login = () => {
             navigate('/information-api');
         } catch (err) {
             err.errors.forEach(error => {
-                toast.error(error.message);
+                toast.error(error.message, {
+                    theme:'colored',
+                    style: {backgroundColor: 'write'}
+                });
             });
         }
 
@@ -32,12 +36,12 @@ const Login = () => {
 
     return (
         <div className='container'>
-            <h1>Login</h1>
             <form onSubmit={submitForm}>
+                <Text fontSize='4xl'>Login</Text>
                 <input type="text" placeholder='Digite seu email' value={email} onChange={(e) => setEmail(e.target.value)} />
                 <input type="password" placeholder='Digite sua senha' value={password} onChange={(e) => setPassword(e.target.value)} />
                 <button type="submit" className='btnEnviar'>Enviar</button>
-            </form>
+            </form> 
             <ToastContainer />
         </div>
     );

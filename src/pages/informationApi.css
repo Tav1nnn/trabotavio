@@ -1,0 +1,44 @@
+.foot {
+    display: flex;
+    justify-content: space-between; /* Distribute buttons evenly */
+    align-items: center;          /* Vertically align buttons */
+    margin-top: 1rem;  
+    width: 30vw;
+    padding-bottom: 20px;           /* Add some top margin for spacing */
+  }
+  
+.center {
+    text-align: center;          /* Center text within the center element */
+  }
+
+.container2{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: #333333;
+    width: 100%;
+    height: 100%;
+}
+
+.containerVh{
+  display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: #333333;
+    width: 100vw;
+    height: 100vh;
+}
+
+.grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    padding: 25px;
+}
+
+.chakra-card__body css-1idwstw {
+  width: 100%;
+}
+
+
+  
