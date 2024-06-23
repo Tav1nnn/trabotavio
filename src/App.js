@@ -1,5 +1,6 @@
 import Login from "./pages/login";
 import InformationApi from "./pages/informationApi";
+import InfoIndividual from "./pages/infoIndividual";
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { ChakraProvider } from '@chakra-ui/react'     
 
@@ -11,6 +12,10 @@ const router = createBrowserRouter([
   {
     path: '/information-api',
     element: <InformationApi />,
+  },
+  {
+    path: '/info-individual/:id',
+    element: <InfoIndividual />,
   }
 ]);
 

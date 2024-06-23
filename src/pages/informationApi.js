@@ -2,6 +2,8 @@ import { useCallback, useEffect, useState } from "react";
 import axios from "axios";
 import './informationApi.css'
 import { Button, ButtonGrou, Text, Card, CardHeader, CardBody, CardFooter, Image, Stack, Heading, color } from '@chakra-ui/react'
+import { useNavigate } from "react-router-dom";
+
 
 const url = 'https://rickandmortyapi.com/api/character?page=1';
 
@@ -10,10 +12,10 @@ const InformationApi = () => {
     const [page, setPage] = useState(1);
     const [maxPage, setMaxPage] = useState(1);
     const [results, setResults] = useState([]);
+    const navigate = useNavigate();
 
     const getResults = useCallback(async () => {
         try {
-            console.log('page:' + page);
             const response = await axios.get(`https://rickandmortyapi.com/api/character?page=${page}`);
             setResults(response.data.results);
             setMaxPage(response.data.info.pages);
@@ -35,33 +37,37 @@ const InformationApi = () => {
         <div className={page === maxPage? 'containerVh' : 'container2'}>
             <div className="grid">
                 {results.map(character => (
-                    <Card
-                    direction={{ base: 'column', sm: 'row' }}
-                    overflow='hidden'
-                    variant='outline'
-                    margin='3'
-                    color='white'
-                    colorScheme="red"
+                
+                        <Card
+                            direction={{ base: 'column', sm: 'row' }}
+                            overflow='hidden'
+                            variant='outline'
+                            margin='3'
+                            color='white'
+                            colorScheme="red"
+                            _hover={{color: '#31B0CC', textDecoration: 'underline', outline: '#31B0CC'}}
+                            cursor='pointer'
+                            onClick={() => {navigate(`/info-individual/${character.id}`)}}
+                        >
+                            <Image
+                                objectFit='cover'
+                                maxW={{ base: '100%', sm: '150px' }}
+                                src={character.image}
+                                alt={character.name}
+                            />
 
-                    >
-                        <Image
-                            objectFit='cover'
-                            maxW={{ base: '100%', sm: '150px' }}
-                            src={character.image}
-                            alt={character.name}
-                        />
+                            <Stack w='100%' >
+                                <CardBody bgColor='#333333'>
+                                    <Heading size='md'>{character.name}</Heading>
 
-                        <Stack w='100%' >
-                            <CardBody bgColor='#333333'>
-                                <Heading size='md'>{character.name}</Heading>
-
-                                <Text py='2'>
-                                    <p>Status: {character.status}</p>
-                                    <p>Species: {character.species}</p>
-                                </Text>
-                            </CardBody>
-                        </Stack>
-                    </Card>
+                                    <Text py='2'>
+                                        <p>Status: {character.status}</p>
+                                        <p>Species: {character.species}</p>
+                                    </Text>
+                                </CardBody>
+                            </Stack>
+                        </Card>
+                    
                 ))}
             </div>
             <div className="foot">
