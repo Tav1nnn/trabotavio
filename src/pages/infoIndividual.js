@@ -58,16 +58,16 @@ const InfoIndividual = () => {
                             <Text fontSize='3xl' color='white' fontWeight='500'>STATUS</Text>
                             <Text fontSize='2xl' color='white'>{character.status}</Text>
 
-                            <Text fontSize='3xl' color='white' fontWeight='500'>SPECIES</Text>
+                            <Text fontSize='3xl' color='white' fontWeight='500'>SPECIES</Text> 
                             <Text fontSize='2xl' color='white'>{character.species}</Text>
 
-                            <Text fontSize='3xl' color='white' fontWeight='500'>GENDER</Text>
-                            <Text fontSize='2xl' color='white'>{character.gender}</Text>
+                            <Text fontSize='3xl' color='white' fontWeight='500'>TYPE</Text>
+                            <Text fontSize='2xl' color='white'>{character.type}</Text>
                         </div>
 
                         <div>
-                            <Text fontSize='3xl' color='white' fontWeight='500'>SPECIES</Text>
-                            <Text fontSize='2xl' color='white'>{character.species}</Text>
+                            <Text fontSize='3xl' color='white' fontWeight='500'>GENDER</Text>
+                            <Text fontSize='2xl' color='white'>{character.gender}</Text>
 
                             <Text fontSize='3xl' color='white' fontWeight='500'>ORIGIN</Text>
                             <Text fontSize='2xl' color='white'>{character.origin.name}</Text>

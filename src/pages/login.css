@@ -5,9 +5,10 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    background-color: #333333;
     width: 100vw;
     height: 100vh;
+    background-image: url('https://wallpapers.com/images/hd/rick-and-morty-unamused-rick-agpuysmhk3lhdl4p.jpg');
+    background-size: cover;
 }
 
 .toast-custom-progress {

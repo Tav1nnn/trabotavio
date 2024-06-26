@@ -57,7 +57,7 @@ const InformationApi = () => {
                             />
 
                             <Stack w='100%' >
-                                <CardBody bgColor='#333333'>
+                                <CardBody bgColor='#262C3A'>
                                     <Heading size='md'>{character.name}</Heading>
 
                                     <Text py='2'>
